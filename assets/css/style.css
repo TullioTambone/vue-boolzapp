@@ -4,9 +4,30 @@
     box-sizing: border-box;
 }
 
-body{
+img{
+    width: 50px;
+    height: 50px;
+}
+
+#web-app{
     height: 100vh;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: rgb(219,219,211);
     background: linear-gradient(0deg, rgba(219,219,211,1) 0%, rgba(219,219,211,1) 85%, rgba(0,150,136,1) 85%);
+}
+
+.container-md{
+    height: 95vh;
+}
+
+#head-left{
+    background-color: #eaeaea;
+}
+.col-7,
+.col-5{
+    border: 1px solid red;
+    
 }
