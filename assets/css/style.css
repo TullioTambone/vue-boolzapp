@@ -23,7 +23,8 @@ img{
     height: 95vh;
 }
 
-#head-left{
+#head-left,
+#head-right{
     background-color: #eaeaea;
 }
 
@@ -37,9 +38,4 @@ img{
 .date{
     font-size: 10px;
     color: gray;
-}
-
-.col-7{
-    border: 1px solid red;
-    
 }

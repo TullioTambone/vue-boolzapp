@@ -81,7 +81,27 @@
                     </div>
 
                     <!--sez. dx chat-->
-                    <div class="col-7"></div>
+                    <div class="col-7">
+                        <div class="row">
+                            <!--header right-->
+                            <div class="col-12" id="head-left">
+                                <div class="d-flex justify-content-between align-items-center p-1">
+                                    <div class="col-10 d-flex">
+                                        <img :src="contacts[control].avatar" alt="" class="rounded-circle">
+                                        <div class="ms-2">
+                                            <span>{{contacts[control].name}}</span>
+                                            <span class="d-block status">{{contacts[control].messages[contacts[control].messages.length-1].date}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <i class="fa-solid fa-circle-notch" style="color: #b1b1b1;"></i>
+                                        <i class="fa-solid fa-message mx-2" style="color: #b1b1b1;"></i>
+                                        <i class="fa-solid fa-ellipsis-vertical" style="color: #b1b1b1;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
