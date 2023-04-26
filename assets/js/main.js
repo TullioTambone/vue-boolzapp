@@ -176,7 +176,7 @@ created(){
 
 methods : {
     changeChat(i){
-        control = i
+        this.control = i
     },
 }
 }).mount('#app')

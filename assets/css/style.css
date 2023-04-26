@@ -77,3 +77,12 @@ img{
     color: gray;
     font-size: 8px;
 }
+
+#contatti{
+    cursor: pointer;
+}
+
+.active{
+    background-color: lightgray;
+    z-index: 99;
+}
