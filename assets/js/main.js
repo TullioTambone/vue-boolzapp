@@ -175,5 +175,8 @@ created(){
 },
 
 methods : {
+    changeChat(i){
+        control = i
+    },
 }
 }).mount('#app')

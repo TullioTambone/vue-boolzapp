@@ -21,14 +21,14 @@
             <div class="container-md">
                 <div class="row">
                     <!--sez. sx contatti-->
-                    <div class="col-5">
+                    <div class="col-5 p-0" id="left-whatsapp">
                         <!--header left-->
-                        <div class="row align-items-center p-1" id="head-left">
-                            <div class="col-10">
+                        <div class="col-12 d-flex justify-content-between align-items-center border-end" id="head-left">
+                            <div>
                                 <img src="./assets/img/avatar_io.jpg" alt="" class="rounded-circle">
                                 <span class="ms-2">Sofia</span>
                             </div>
-                            <div class="col-2">
+                            <div class="me-2">
                                 <i class="fa-solid fa-circle-notch" style="color: #b1b1b1;"></i>
                                 <i class="fa-solid fa-message mx-2" style="color: #b1b1b1;"></i>
                                 <i class="fa-solid fa-ellipsis-vertical" style="color: #b1b1b1;"></i>
@@ -36,34 +36,32 @@
                         </div>
 
                         <!--sezione alert-->
-                        <div class="row">
-                            <div class="col-12 d-flex align-items-center p-2" style="background-color: #8edafc;">
-                                <!--campanella-->
-                                <div class="rounded-circle bg-white d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;">
-                                    <i class="fa-solid fa-bell-slash" style="color: #8edafc;"></i>
-                                </div>
-                                <!--status-->
-                                <div class="ms-2 status">
-                                    <span>
-                                        Ricevi notifiche di nuovi messaggi
-                                    </span>
-                                    <span class="text-decoration-underline text-secondary d-block">Attiva notifiche desktop</span>
-                                </div>
+                        <div class="col-12 d-flex align-items-center p-2" style="background-color: #8edafc;">
+                            <!--campanella-->
+                            <div class="rounded-circle bg-white d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;">
+                                <i class="fa-solid fa-bell-slash" style="color: #8edafc;"></i>
                             </div>
-                            <!--cerca-->
-                            <div class="col-12" style="background-color: #fafafa;">
-                                <div class="input-group flex-nowrap py-1">
-                                    <span class="input-group-text" id="addon-wrapping">
-                                        <i class="fa-solid fa-magnifying-glass" style="color: #b1b1b1;"></i>
-                                    </span>
-                                    <input type="text" class="w-100 border" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="addon-wrapping">
-                                </div>
+                            <!--status-->
+                            <div class="ms-2 status">
+                                <span>
+                                    Ricevi notifiche di nuovi messaggi
+                                </span>
+                                <span class="text-decoration-underline text-secondary d-block">Attiva notifiche desktop</span>
                             </div>
-
+                        </div>
+                        <!--cerca-->
+                        <div class="col-12" style="background-color: #fafafa;">
+                            <div class="input-group flex-nowrap py-1">
+                                <span class="input-group-text" id="addon-wrapping">
+                                    <i class="fa-solid fa-magnifying-glass" style="color: #b1b1b1;"></i>
+                                </span>
+                                <input type="text" class="w-100 border" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="addon-wrapping">
+                            </div>
                         </div>
                         <!--contatti-->
-                        <div class="row bg-white">
-                            <div class="col-12 d-flex align-items-center p-2 border-top" 
+                        <div class="bg-white" id="contatti">
+                            <div class="col-12 d-flex align-items-center p-2 border-top"
+                            @click="changeChat(index)"
                             v-for=" (element, index) in contacts" 
                             :key="index">
                                 <img :src="element.avatar" alt="" class="rounded-circle">
@@ -81,24 +79,48 @@
                     </div>
 
                     <!--sez. dx chat-->
-                    <div class="col-7">
+                    <div class="col-7" id="right-whatsapp">
                         <div class="row">
                             <!--header right-->
-                            <div class="col-12" id="head-left">
-                                <div class="d-flex justify-content-between align-items-center p-1">
-                                    <div class="col-10 d-flex">
-                                        <img :src="contacts[control].avatar" alt="" class="rounded-circle">
-                                        <div class="ms-2">
-                                            <span>{{contacts[control].name}}</span>
-                                            <span class="d-block status">{{contacts[control].messages[contacts[control].messages.length-1].date}}</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-2">
-                                        <i class="fa-solid fa-circle-notch" style="color: #b1b1b1;"></i>
-                                        <i class="fa-solid fa-message mx-2" style="color: #b1b1b1;"></i>
-                                        <i class="fa-solid fa-ellipsis-vertical" style="color: #b1b1b1;"></i>
+                            <div class="col-12 d-flex justify-content-between align-items-center p-2 border-start" id="head-right">
+                                <div class="d-flex">
+                                    <img :src="contacts[control].avatar" alt="" class="rounded-circle">
+                                    <div class="ms-2">
+                                        <span class="name">{{contacts[control].name}}</span>
+                                        <span class="d-block date">{{contacts[control].messages[contacts[control].messages.length-1].date}}</span>
                                     </div>
                                 </div>
+                                <div class="">
+                                    <i class="fa-solid fa-magnifying-glass" style="color: #b1b1b1;"></i>
+                                    <i class="fa-solid fa-paperclip mx-2" style="color: #b1b1b1;"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical" style="color: #b1b1b1;"></i>
+                                </div>
+                            </div>
+
+                            <!--main right-->
+                            <div class="col-12 d-flex flex-column  align-items-center" id="main-chat">
+                                <div class="w-75 d-flex flex-column">
+
+                                    <div class="rounded p-3 position-relative my-1" :class="element.status" v-for="(element) in contacts[control].messages" :key="control">
+                                        <div>
+                                            {{element.message}}
+                                        </div>
+                                        <div class="date-chat">
+                                            {{element.date}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--message-text-area-->
+                            <div class="col-12 d-flex align-items-center justify-content-around p-2" 
+                            style="background-color: #f3eeea;"
+                            id="text-area">
+                                <i class="fa-regular fa-face-smile text-secondary"></i>
+                                <div class="w-75">
+                                    <input type="text" class="w-100 border">
+                                </div>
+                                <i class="fa-solid fa-microphone text-secondary"></i>
                             </div>
                         </div>
                     </div>

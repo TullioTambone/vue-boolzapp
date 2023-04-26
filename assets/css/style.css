@@ -23,9 +23,27 @@ img{
     height: 95vh;
 }
 
+#left-whatsapp,
+#right-whatsapp{
+
+    height: 95vh;
+    background-color: white;
+}
+
 #head-left,
 #head-right{
     background-color: #eaeaea;
+    height: 10vh;
+}
+
+#text-area{
+    height: 8vh;
+}
+
+#main-chat{
+    height: 77vh;
+    background-image: url(../img/mine.jpg);
+    overflow-y: auto;
 }
 
 .status{
@@ -38,4 +56,24 @@ img{
 .date{
     font-size: 10px;
     color: gray;
+}
+
+.sent{
+    background-color: #d5f9ba;
+    align-self: flex-end;
+    max-width: 60%;
+}
+
+.received{
+    background-color: white;
+    align-self: flex-start;
+    max-width: 60%;
+}
+
+.date-chat{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    color: gray;
+    font-size: 8px;
 }
