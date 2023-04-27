@@ -7,7 +7,7 @@ createApp({
         control: 0,
         person: '',
         myMessage: '',
-        soldier: false,
+        display: false,
 
         contacts: [
             {
@@ -18,17 +18,20 @@ createApp({
                     {
                         date: '10/01/2020 15:30:55',
                         message: 'Hai portato a spasso il cane?',
-                        status: 'sent'
+                        status: 'sent',
+                        prova: false,
                     },
                     {
                         date: '10/01/2020 15:50:00',
                         message: 'Ricordati di stendere i panni',
-                        status: 'sent'
+                        status: 'sent',
+                        prova: false,
                     },
                     {
                         date: '10/01/2020 16:15:22',
                         message: 'Tutto fatto!',
-                        status: 'received'
+                        status: 'received',
+                        prova: false,
                     }
                 ],
             },
@@ -228,7 +231,16 @@ methods : {
             }, 1000 )
         }
     },
-
+    changeDisplay(e){
+        if(e.prova == false){
+            e.prova = true
+        } else{
+            e.prova = false
+        }
+    },
+    deleteL(e, i){
+        this.contacts[this.control].messages.splice(i, 1)
+    }
     
 }
 }).mount('#app')

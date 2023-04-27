@@ -87,20 +87,26 @@ img{
     z-index: 99;
 }
 
-#contact-list{
-    background-color: rgba(255, 255, 255, 0.9);
+.contact-list{
+    background-color: white;
     position: absolute;
-    top: 33px;
-    right: 0;
-    left: 20px;
+    top: 10px;
+    right: 5px;
     border-radius: 5px;
 }
 
-#contact-list li{
+.contact-list li{
     list-style-type: none;
+    font-size: 10px;
 }
 
-#contact-list li:hover{
+.contact-list li:hover{
     background-color: lightgray;
     cursor: pointer;
+}
+
+#menuMessage{
+    position: absolute;
+    top: 5px;
+    right: 10px;
 }

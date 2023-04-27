@@ -82,7 +82,6 @@
                                 <div class="col-12 d-flex align-items-center p-2 border-top" v-if="element.name.toLowerCase().includes(person)">
 
                                     <img :src="element.avatar" alt="" class="rounded-circle">
-    
                                     <div class="ms-3 w-100">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <span class="name">{{element.name}}</span>
@@ -120,12 +119,21 @@
                             <div class="col-12 d-flex flex-column  align-items-center" id="main-chat">
                                 <div class="w-75 d-flex flex-column">
 
-                                    <div class="rounded p-3 position-relative my-1" :class="element.status" v-for="(element) in contacts[control].messages" :key="control">
+                                    <div class="rounded p-3 position-relative my-1" :class="element.status" v-for="(element, index) in contacts[control].messages" :key="control">
                                         <div>
                                             {{element.message}}
                                         </div>
                                         <div class="date-chat">
                                             {{element.date}}
+                                        </div>
+                                        <div class="contact-list" v-if="element.prova">
+                                            <ul>
+                                                <li>giorgioForeach</li>
+                                                <li @click="deleteL(element, index)">Elimina Messaggio</li>
+                                            </ul>
+                                        </div>
+                                        <div id="menuMessage">
+                                            <i class="fa-solid fa-ellipsis-vertical" style="color: #b1b1b1;"  @click="changeDisplay(element)"></i>
                                         </div>
                                     </div>
                                 </div>
