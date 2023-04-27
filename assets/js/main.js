@@ -5,6 +5,9 @@ createApp({
       return {
 
         control: 0,
+        person: '',
+        myMessage: '',
+        soldier: false,
 
         contacts: [
             {
@@ -178,5 +181,54 @@ methods : {
     changeChat(i){
         this.control = i
     },
+
+    selected(event){
+        console.log(event)
+    },
+
+    // filterNames(){
+    //     let myNames = this.contacts.map(element => {
+    //         return element.name
+    //     })
+
+    //     console.log(myNames)
+    //     this.filteredNames = myNames.filter(person => {
+    //         return person.toLowerCase().startsWith(this.person.toLowerCase())
+    //     })
+    //     console.log(this.filteredNames)
+    // },
+
+    // setPerson(person){
+    //     this.person = person
+    //     this.soldier = false
+
+    //     for (let i = 0; i < this.contacts.length; i++) {
+    //         if(this.person == this.contacts[i].name){
+    //             this.control = i
+    //         }
+    //     }
+    // },
+    addMessage(){
+        if(this.myMessage != ''){
+            let sentMessage = {
+                date: '10/01/2020 15:30:55',
+                message: this.myMessage,
+                status: 'sent'
+            }
+            this.contacts[this.control].messages.push(sentMessage)
+            this.myMessage = '' 
+            setTimeout( ()=> { 
+                let receivedMessage = {
+                    date: '10/01/2020 15:30:55',
+                    message: 'ok',
+                    status: 'received'
+                }
+                this.contacts[this.control].messages.push(receivedMessage)
+                this.myMessage = ''
+            }, 1000 )
+        }
+    },
+
+    
 }
 }).mount('#app')
